@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marto AC Mobil - Bengkel Spesialis AC Mobil Jakarta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#001f3f',
+                        'navy-dark': '#000a1a',
+                        'cyan': '#00bcd4',
+                        'cyan-light': '#4dd0e1',
+                        'slate': '#64748b',
+                        'slate-light': '#94a3b8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .gradient-hero {
+            background: linear-gradient(135deg, #001f3f 0%, #0d47a1 100%);
+        }
+        .gradient-accent {
+            background: linear-gradient(135deg, #00bcd4 0%, #4dd0e1 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 188, 212, 0.2);
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00bcd4 0%, #4dd0e1 100%);
+            border-radius: 12px;
+            color: white;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body class="smooth-scroll bg-gray-50 text-gray-900">
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+    </script>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                        M
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-navy">Marto AC Mobil</h1>
+                        <p class="text-xs text-cyan font-semibold">Spesialis AC Sejak 2000</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#layanan" class="text-gray-700 hover:text-cyan font-medium transition">Layanan</a>
+                    <a href="#keunggulan" class="text-gray-700 hover:text-cyan font-medium transition">Keunggulan</a>
+                    <a href="#kendaraan" class="text-gray-700 hover:text-cyan font-medium transition">Jenis Mobil</a>
+                    <a href="#ulasan" class="text-gray-700 hover:text-cyan font-medium transition">Ulasan</a>
+                    <a href="#lokasi" class="text-gray-700 hover:text-cyan font-medium transition">Lokasi</a>
+                </div>
+
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:flex">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20konsultasi%20tentang%20AC%20mobil%20saya" target="_blank" class="bg-gradient-accent text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition">
+                        Hubungi Kami
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-navy text-2xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200">
+                <a href="#layanan" onclick="closeMobileMenu()" class="block py-2 text-gray-700 hover:text-cyan font-medium">Layanan</a>
+                <a href="#keunggulan" onclick="closeMobileMenu()" class="block py-2 text-gray-700 hover:text-cyan font-medium">Keunggulan</a>
+                <a href="#kendaraan" onclick="closeMobileMenu()" class="block py-2 text-gray-700 hover:text-cyan font-medium">Jenis Mobil</a>
+                <a href="#ulasan" onclick="closeMobileMenu()" class="block py-2 text-gray-700 hover:text-cyan font-medium">Ulasan</a>
+                <a href="#lokasi" onclick="closeMobileMenu()" class="block py-2 text-gray-700 hover:text-cyan font-medium">Lokasi</a>
+                <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20konsultasi%20tentang%20AC%20mobil%20saya" target="_blank" onclick="closeMobileMenu()" class="block mt-4 bg-gradient-accent text-white px-4 py-2 rounded-lg font-semibold text-center">
+                    Hubungi Kami
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-hero text-white py-16 sm:py-20 lg:py-28 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                AC Mobil Dingin Optimal, Layanan Transparan
+            </h2>
+            <p class="text-lg sm:text-xl text-cyan-light mb-6 max-w-2xl mx-auto">
+                Bengkel spesialis yang berfokus pada perawatan, perbaikan, dan diagnosa sistem AC mobil. Menggabungkan pengecekan fisik dan analisis data kelistrikan untuk memastikan kinerja pendinginan kabin kendaraan tetap optimal dan efisien.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                    <p class="text-sm font-semibold">⭐ Google Review</p>
+                    <p class="text-2xl font-bold">4.6 / 5.0</p>
+                    <p class="text-xs text-cyan-light">(150+ Ulasan)</p>
+                </div>
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                    <p class="text-sm font-semibold">📅 Pengalaman</p>
+                    <p class="text-2xl font-bold">24+ Tahun</p>
+                    <p class="text-xs text-cyan-light">Sejak Tahun 2000</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#lokasi" class="bg-white text-navy px-8 py-3 rounded-lg font-bold hover:shadow-lg transition">
+                    Cek Lokasi
+                </a>
+                <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20booking%20service%20AC%20mobil" target="_blank" class="bg-cyan text-navy px-8 py-3 rounded-lg font-bold hover:bg-cyan-light transition">
+                    Booking Service
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan & Metodologi Section -->
+    <section id="keunggulan" class="py-16 sm:py-20 lg:py-24 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl sm:text-4xl font-bold text-navy mb-4">Keunggulan Kami</h3>
+                <p class="text-lg text-slate max-w-2xl mx-auto">
+                    Dengan pengalaman lebih dari 24 tahun, kami berkomitmen memberikan layanan terbaik dengan pendekatan yang jujur dan transparan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-xl border border-cyan-100">
+                    <div class="service-icon mb-4">
+                        📅
+                    </div>
+                    <h4 class="text-xl font-bold text-navy mb-3">24+ Tahun Pengalaman</h4>
+                    <p class="text-gray-700">
+                        Melayani ribuan pelanggan sejak tahun 2000 dengan kepercayaan dan dedikasi tinggi dalam setiap perbaikan AC mobil.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-xl border border-cyan-100">
+                    <div class="service-icon mb-4">
+                        ✓
+                    </div>
+                    <h4 class="text-xl font-bold text-navy mb-3">Jujur & Transparan</h4>
+                    <p class="text-gray-700">
+                        Diagnosis akurat tanpa penggantian komponen yang tidak perlu. Kami selalu memberikan penjelasan detail sebelum melakukan perbaikan.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-xl border border-cyan-100">
+                    <div class="service-icon mb-4">
+                        🔍
+                    </div>
+                    <h4 class="text-xl font-bold text-navy mb-3">Diagnosa Akurat</h4>
+                    <p class="text-gray-700">
+                        Pengecekan fisik, analisis kelistrikan, dan pembacaan sensor tekanan untuk hasil diagnosis yang presisi dan tepat sasaran.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Metodologi Diagnosa -->
+            <div class="mt-16 bg-gradient-to-r from-navy to-blue-900 text-white p-8 sm:p-12 rounded-xl">
+                <h4 class="text-2xl sm:text-3xl font-bold mb-8 text-center">Metodologi Diagnosa Kami</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🔧</div>
+                        <h5 class="text-lg font-bold mb-2">Pengecekan Fisik</h5>
+                        <p class="text-cyan-light text-sm">Inspeksi menyeluruh komponen AC mobil secara visual dan manual</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">⚡</div>
+                        <h5 class="text-lg font-bold mb-2">Analisis Kelistrikan</h5>
+                        <p class="text-cyan-light text-sm">Pemeriksaan sistem kelistrikan AC dan koneksi komponen</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h5 class="text-lg font-bold mb-2">Pembacaan Sensor Tekanan</h5>
+                        <p class="text-cyan-light text-sm">Analisis data tekanan gas freon dan performa sistem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Utama Section -->
+    <section id="layanan" class="py-16 sm:py-20 lg:py-24 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl sm:text-4xl font-bold text-navy mb-4">Layanan Utama Kami</h3>
+                <p class="text-lg text-slate max-w-2xl mx-auto">
+                    Kami menyediakan solusi lengkap untuk semua kebutuhan AC mobil Anda dengan teknisi berpengalaman dan peralatan modern.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan">
+                    <div class="service-icon mb-4">
+                        🔋
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-3">Pengecekan Tekanan & Pengisian Freon</h4>
+                    <p class="text-gray-700 text-sm">
+                        Pengecekan tekanan gas freon dan pengisian ulang untuk memastikan AC mobil bekerja dengan optimal.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan">
+                    <div class="service-icon mb-4">
+                        💧
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-3">Analisis & Pencarian Kebocoran</h4>
+                    <p class="text-gray-700 text-sm">
+                        Deteksi dan perbaikan kebocoran pada pipa atau selang AC dengan teknologi terkini.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan">
+                    <div class="service-icon mb-4">
+                        🧹
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-3">Pembersihan & Perawatan Rutin</h4>
+                    <p class="text-gray-700 text-sm">
+                        Pembersihan kondensor dan evaporator untuk menjaga performa AC tetap prima.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan">
+                    <div class="service-icon mb-4">
+                        🔩
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-3">Perbaikan & Penggantian Kompresor</h4>
+                    <p class="text-gray-700 text-sm">
+                        Perbaikan, pembongkaran, dan penggantian kompresor AC yang rusak atau tidak berfungsi.
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan">
+                    <div class="service-icon mb-4">
+                        ⚙️
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-3">Penggantian Komponen Mekanikal</h4>
+                    <p class="text-gray-700 text-sm">
+                        Penggantian magnetic clutch, katup ekspansi, dan komponen mekanikal lainnya.
+                    </p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan">
+                    <div class="service-icon mb-4">
+                        🔌
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-3">Diagnosa Sistem Kelistrikan</h4>
+                    <p class="text-gray-700 text-sm">
+                        Diagnosa sistem kelistrikan AC dan pembacaan sensor tekanan untuk hasil akurat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spesifikasi Kendaraan Section -->
+    <section id="kendaraan" class="py-16 sm:py-20 lg:py-24 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl sm:text-4xl font-bold text-navy mb-4">Jenis Kendaraan yang Kami Layani</h3>
+                <p class="text-lg text-slate">
+                    Kami melayani berbagai jenis kendaraan dengan spesifikasi tertentu.
+                </p>
+            </div>
+
+            <!-- Vehicle Types -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-gradient-to-br from-green-50 to-cyan-50 p-8 rounded-xl border-2 border-green-200">
+                    <h4 class="text-2xl font-bold text-green-700 mb-4">✓ Kami Layani</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-600 font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Kendaraan Bensin (ICE)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Kendaraan Diesel (ICE)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Kendaraan Hybrid (Non-China)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Kendaraan Listrik/EV (Non-China)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-xl border-2 border-red-200">
+                    <h4 class="text-2xl font-bold text-red-700 mb-4">✗ Tidak Kami Layani</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold mr-3">✗</span>
+                            <span class="text-gray-700">EV dari Pabrikan China</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-600 font-bold mr-3">✗</span>
+                            <span class="text-gray-700">Hybrid dari Pabrikan China</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Important Notice -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                <div class="flex items-start">
+                    <span class="text-2xl mr-4">⚠️</span>
+                    <div>
+                        <h5 class="font-bold text-yellow-800 mb-2">Perhatian Penting</h5>
+                        <p class="text-yellow-700">
+                            Mohon maaf, untuk saat ini kami belum melayani kendaraan EV maupun Hybrid dari pabrikan/brand asal China. Kami menyarankan Anda menghubungi bengkel resmi dari pabrikan kendaraan Anda untuk layanan AC yang sesuai.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section id="ulasan" class="py-16 sm:py-20 lg:py-24 px-4 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl sm:text-4xl font-bold text-navy mb-4">Ulasan Pelanggan</h3>
+                <p class="text-lg text-slate">
+                    Kepuasan pelanggan adalah prioritas utama kami. Berikut adalah beberapa ulasan dari pelanggan setia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center text-white font-bold">
+                            BS
+                        </div>
+                        <div class="ml-4">
+                            <h5 class="font-bold text-navy">Budi Santoso</h5>
+                            <p class="text-sm text-cyan">⭐⭐⭐⭐⭐ (5/5)</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-light mb-4">2 bulan lalu • Perbaikan & Service AC Mobil</p>
+                    <p class="text-gray-700 italic">
+                        "Pelayanan sangat memuaskan, teknisinya jujur dan transparan. AC mobil langsung dingin kembali dan pengerjaannya tergolong cepat."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center text-white font-bold">
+                            AW
+                        </div>
+                        <div class="ml-4">
+                            <h5 class="font-bold text-navy">Andi Wijaya</h5>
+                            <p class="text-sm text-cyan">⭐⭐⭐⭐⭐ (5/5)</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-light mb-4">5 bulan lalu • Maintenance / Isi Freon</p>
+                    <p class="text-gray-700 italic">
+                        "Bengkel AC langganan di area Rawamangun. Pak Marto dan timnya berpengalaman, analisa kerusakannya tepat jadi ga perlu ganti part yang ga penting."
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="card-hover bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center text-white font-bold">
+                            RH
+                        </div>
+                        <div class="ml-4">
+                            <h5 class="font-bold text-navy">Rian Hidayat</h5>
+                            <p class="text-sm text-cyan">⭐⭐⭐⭐ (4/5)</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-light mb-4">1 tahun lalu • Service AC</p>
+                    <p class="text-gray-700 italic">
+                        "Harga bersahabat dibanding tempat lain, pengerjaan lumayan rapi. Hanya saja kalau akhir pekan antreannya lumayan panjang."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Rating Summary -->
+            <div class="mt-12 bg-gradient-to-r from-navy to-blue-900 text-white p-8 rounded-xl text-center">
+                <p class="text-sm font-semibold mb-2">Rating Google Maps</p>
+                <p class="text-4xl font-bold mb-2">4.6 ⭐</p>
+                <p class="text-cyan-light">Berdasarkan 150+ ulasan dari pelanggan yang puas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lokasi & Kontak Section -->
+    <section id="lokasi" class="py-16 sm:py-20 lg:py-24 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl sm:text-4xl font-bold text-navy mb-4">Lokasi & Kontak Kami</h3>
+                <p class="text-lg text-slate">
+                    Kunjungi bengkel kami di Rawamangun, Jakarta Timur untuk mendapatkan layanan terbaik.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-xl border border-cyan-100">
+                        <h4 class="text-2xl font-bold text-navy mb-6">Informasi Kontak</h4>
+                        
+                        <div class="space-y-5">
+                            <div class="flex items-start">
+                                <span class="text-2xl mr-4 text-cyan">📍</span>
+                                <div>
+                                    <h5 class="font-bold text-navy mb-1">Alamat</h5>
+                                    <p class="text-gray-700 text-sm leading-relaxed">
+                                        Jl. Balap Sepeda No.8, RT.8/RW.6, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <span class="text-2xl mr-4 text-cyan">📞</span>
+                                <div>
+                                    <h5 class="font-bold text-navy mb-1">Hubungi Kami</h5>
+                                    <p class="text-gray-700 text-sm">
+                                        <a href="https://wa.me/6281234567890" target="_blank" class="text-cyan hover:underline font-semibold">
+                                            WhatsApp: +62 812-3456-7890
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <span class="text-2xl mr-4 text-cyan">⭐</span>
+                                <div>
+                                    <h5 class="font-bold text-navy mb-1">Rating Google Maps</h5>
+                                    <p class="text-gray-700 text-sm">
+                                        4.6 / 5.0 dari 150+ ulasan
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://www.google.com/maps/place/Marto+Ac+Mobil,+Jl.+Balap+Sepeda+No.8,+RT.8%2FRW.6,+Rawamangun,+Kec.+Pulo+Gadung,+Kota+Jakarta+Timur,+Daerah+Khusus+Ibukota+Jakarta+13220/@-6.1905241,106.8910321,17z/" target="_blank" class="inline-block mt-6 bg-gradient-accent text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition">
+                            Buka di Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map Embed -->
+                <div class="rounded-xl overflow-hidden shadow-lg border border-cyan-100 h-96 lg:h-auto">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3261945819226!2d106.88911!3d-6.1905241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sMarto%20Ac%20Mobil!5e0!3m2!1sid!2sid!4v1234567890" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Mobile CTA Button -->
+    <div class="fixed bottom-0 left-0 right-0 md:hidden bg-white border-t border-gray-200 p-4 shadow-lg">
+        <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20konsultasi%20tentang%20AC%20mobil%20saya" target="_blank" class="block w-full bg-gradient-accent text-white py-3 rounded-lg font-bold text-center hover:shadow-lg transition">
+            💬 Hubungi via WhatsApp
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-navy-dark text-white py-12 px-4 mt-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center font-bold text-lg">
+                            M
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold">Marto AC Mobil</h3>
+                            <p class="text-xs text-cyan">Spesialis AC Sejak 2000</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-light leading-relaxed">
+                        Bengkel spesialis yang berfokus pada perawatan, perbaikan, dan diagnosa sistem AC mobil dengan pendekatan jujur dan transparan.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Menu Cepat</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#layanan" class="text-slate-light hover:text-cyan transition">Layanan</a></li>
+                        <li><a href="#keunggulan" class="text-slate-light hover:text-cyan transition">Keunggulan</a></li>
+                        <li><a href="#kendaraan" class="text-slate-light hover:text-cyan transition">Jenis Mobil</a></li>
+                        <li><a href="#ulasan" class="text-slate-light hover:text-cyan transition">Ulasan</a></li>
+                        <li><a href="#lokasi" class="text-slate-light hover:text-cyan transition">Lokasi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Kontak</h4>
+                    <p class="text-sm text-slate-light mb-2">
+                        📍 Jl. Balap Sepeda No.8, Rawamangun, Jakarta Timur
+                    </p>
+                    <p class="text-sm text-slate-light mb-4">
+                        📞 <a href="https://wa.me/6281234567890" target="_blank" class="text-cyan hover:underline">WhatsApp: +62 812-3456-7890</a>
+                    </p>
+                    <a href="https://www.google.com/maps/place/Marto+Ac+Mobil" target="_blank" class="inline-block text-cyan hover:text-cyan-light transition text-sm font-semibold">
+                        Lihat di Google Maps →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-slate mb-8"></div>
+
+            <!-- Copyright -->
+            <div class="text-center">
+                <p class="text-sm text-slate-light">
+                    © 2026 Marto AC Mobil. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Padding for Sticky CTA -->
+    <div class="md:hidden h-20"></div>
+</body>
+</html>
