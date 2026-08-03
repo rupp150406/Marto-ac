@@ -402,3 +402,32 @@
         </div>
     </div>
 </section>
+
+<script>
+    // Toggle menu mobile
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Animasi scroll-reveal: tambahkan class 'visible' saat elemen masuk viewport
+    const revealEls = document.querySelectorAll('.scroll-reveal');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+    } else {
+        revealEls.forEach(el => el.classList.add('visible'));
+    }
+</script>
+</body>
+</html>
