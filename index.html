@@ -1,976 +1,472 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marto AC Mobil - Bengkel Spesialis AC Mobil Jakarta</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            color: #1a1a1a;
-            background: #ffffff;
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Hero Section with Half Opacity Background */
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #001f3f 0%, #0d47a1 100%);
-        }
-
-        .hero-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1517420879691-0da9540b5491?w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            color: white;
-            max-width: 900px;
-            padding: 40px 20px;
-        }
-
-        /* Service Cards with Subtle Hover */
-        .service-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 32px 24px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #00bcd4 0%, #4dd0e1 100%);
-        }
-
-        .service-card:hover {
-            border-color: #00bcd4;
-            box-shadow: 0 12px 24px rgba(0, 188, 212, 0.1);
-            transform: translateY(-4px);
-        }
-
-        /* SVG Icon Container */
-        .icon-container {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        /* Section with Half Opacity Image Background */
-        .section-with-bg {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.08;
-            z-index: 0;
-        }
-
-        .section-content {
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Testimonial Cards */
-        .testimonial-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 28px;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: #00bcd4;
-            box-shadow: 0 8px 16px rgba(0, 188, 212, 0.08);
-        }
-
-        .rating-stars {
-            color: #fbbf24;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-
-        /* Clean Button Styles */
-        .btn-primary {
-            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-            color: white;
-            padding: 12px 32px;
-            border-radius: 8px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(0, 188, 212, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #001f3f;
-            padding: 12px 32px;
-            border: 2px solid #001f3f;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-secondary:hover {
-            background: #001f3f;
-            color: white;
-        }
-
-        /* Sticky Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        /* Navbar */
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #001f3f;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .logo-text h1 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #001f3f;
-        }
-
-        .logo-text p {
-            font-size: 11px;
-            color: #00bcd4;
-            font-weight: 600;
-        }
-
-        .nav-links {
-            display: none;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            color: #4b5563;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #00bcd4;
-        }
-
-        @media (min-width: 768px) {
-            .nav-links {
-                display: flex;
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marto AC Mobil - Spesialis AC Mobil Jakarta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#0b1c30",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#001f25",
+                        "outline-variant": "#c6c6cd",
+                        "tertiary-container": "#0b1c30",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-on-surface": "#eff1f3",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-container": "#75859d",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "background": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "on-secondary-container": "#00616f",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#a2eeff",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "outline": "#76777d",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7f9fb",
+                        "primary": "#000000",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eceef0",
+                        "secondary-container": "#3fe1fd",
+                        "primary-container": "#131b2e",
+                        "surface-container-high": "#e6e8ea",
+                        "tertiary": "#000000",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-container": "#7c839b",
+                        "secondary": "#006877",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#004e5a",
+                        "secondary-fixed-dim": "#2fd9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "base": "4px",
+                        "xl": "80px",
+                        "lg": "48px",
+                        "sm": "16px",
+                        "xs": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl-mobile": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["30px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-xl-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
             }
         }
-
-        .nav-cta {
-            display: none;
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-
-        @media (min-width: 768px) {
-            .nav-cta {
-                display: block;
-            }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
         }
-
-        .mobile-menu-btn {
-            display: block;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: #001f3f;
+        .nav-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
-
-        @media (min-width: 768px) {
-            .mobile-menu-btn {
-                display: none;
-            }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(118,119,125,0.05);
         }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            right: 0;
-            background: white;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 20px;
-            flex-direction: column;
-            gap: 16px;
-            z-index: 99;
+        .gradient-btn {
+            background: linear-gradient(135deg, theme('colors.secondary-fixed'), theme('colors.secondary-container'));
         }
-
-        .mobile-menu.active {
-            display: flex;
-        }
-
-        .mobile-menu a {
-            color: #4b5563;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 0;
-        }
-
-        /* Grid System */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
-        }
-
-        @media (min-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .grid-3 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .grid-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Section Spacing */
-        section {
-            padding: 80px 0;
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        /* Typography */
-        h2 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #001f3f;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 28px;
-            }
-        }
-
-        h3 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #001f3f;
-            margin-bottom: 12px;
-        }
-
-        p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #4b5563;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 14px;
-            color: #00bcd4;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .section-description {
-            font-size: 16px;
-            color: #64748b;
-            max-width: 600px;
-            margin: 0 auto 48px;
-        }
-
-        /* Footer */
-        footer {
-            background: #0a0f1f;
-            color: #cbd5e1;
-            padding: 60px 24px 24px;
-        }
-
-        footer h4 {
-            color: white;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        footer a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #00bcd4;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .footer-divider {
-            border-top: 1px solid #1e293b;
-            margin: 40px 0;
-        }
-
-        .footer-copyright {
-            text-align: center;
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        /* Alert Box */
-        .alert-box {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 24px;
-            border-radius: 8px;
-            margin-top: 32px;
-        }
-
-        .alert-box h4 {
-            color: #92400e;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .alert-box p {
-            color: #b45309;
-            font-size: 14px;
-        }
-
-        /* Sticky Mobile CTA */
-        .sticky-cta {
-            display: block;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            border-top: 1px solid #e5e7eb;
-            padding: 12px 24px;
-            z-index: 50;
-        }
-
-        @media (min-width: 768px) {
-            .sticky-cta {
-                display: none;
-            }
-        }
-
-        .sticky-cta a {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 12px 16px;
-            background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        /* Spacing Utilities */
-        .mb-8 { margin-bottom: 32px; }
-        .mb-6 { margin-bottom: 24px; }
-        .mb-4 { margin-bottom: 16px; }
-        .mt-8 { margin-top: 32px; }
-        .gap-4 { gap: 16px; }
-        .gap-6 { gap: 24px; }
     </style>
 </head>
-<body>
-    <!-- Header / Navigation -->
-    <header>
-        <nav>
-            <a href="#" class="logo">
-                <div class="logo-icon">M</div>
-                <div class="logo-text">
-                    <h1>Marto AC Mobil</h1>
-                    <p>Spesialis AC Sejak 2000</p>
-                </div>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary-container selection:text-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-container/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-300 ease-in-out">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight" href="#">
+                Marto AC Mobil
             </a>
-
-            <div class="nav-links">
-                <a href="#layanan">Layanan</a>
-                <a href="#keunggulan">Keunggulan</a>
-                <a href="#kendaraan">Jenis Mobil</a>
-                <a href="#ulasan">Ulasan</a>
-                <a href="#lokasi">Lokasi</a>
-            </div>
-
-            <div class="nav-cta">
-                <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20konsultasi" target="_blank" class="btn-primary">Hubungi Kami</a>
-            </div>
-
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-        </nav>
-
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#layanan" onclick="closeMobileMenu()">Layanan</a>
-            <a href="#keunggulan" onclick="closeMobileMenu()">Keunggulan</a>
-            <a href="#kendaraan" onclick="closeMobileMenu()">Jenis Mobil</a>
-            <a href="#ulasan" onclick="closeMobileMenu()">Ulasan</a>
-            <a href="#lokasi" onclick="closeMobileMenu()">Lokasi</a>
-            <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20konsultasi" target="_blank" class="btn-primary" onclick="closeMobileMenu()">Hubungi Kami</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-bg-image"></div>
-        <div class="hero-content">
-            <h2 style="font-size: 48px; margin-bottom: 24px;">AC Mobil Dingin Optimal, Layanan Transparan</h2>
-            <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8;">
-                Bengkel spesialis yang berfokus pada perawatan, perbaikan, dan diagnosa sistem AC mobil. Menggabungkan pengecekan fisik dan analisis data kelistrikan untuk memastikan kinerja pendinginan kabin kendaraan tetap optimal dan efisien.
-            </p>
-
-            <div style="display: flex; flex-direction: column; gap: 16px; justify-content: center; align-items: center; margin-bottom: 40px;">
-                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 20px 32px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);">
-                    <p style="font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 4px;">⭐ Google Review</p>
-                    <p style="font-size: 32px; font-weight: 700; color: white; margin-bottom: 4px;">4.6 / 5.0</p>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.7);">(150+ Ulasan)</p>
-                </div>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center; align-items: center;">
-                <a href="#lokasi" class="btn-primary" style="background: white; color: #001f3f;">Cek Lokasi</a>
-                <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20booking%20service" target="_blank" class="btn-primary">Booking Service</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Keunggulan Section -->
-    <section id="keunggulan" class="section-with-bg" style="background: #f8fafc;">
-        <div class="section-bg-image" style="background-image: url('https://images.unsplash.com/photo-1517420879691-0da9540b5491?w=1600&q=80');"></div>
-        <div class="section-content">
-            <div class="container">
-                <div class="text-center mb-8">
-                    <div class="section-subtitle">Mengapa Memilih Kami</div>
-                    <h2>Keunggulan Kami</h2>
-                    <p class="section-description">
-                        Dengan pengalaman lebih dari 24 tahun, kami berkomitmen memberikan layanan terbaik dengan pendekatan yang jujur dan transparan.
+<!-- Desktop Nav -->
+<ul class="hidden md:flex items-center space-x-md">
+<li><a class="text-on-surface-variant hover:text-secondary hover:bg-secondary/10 px-sm py-xs rounded-lg transition-colors font-body-md text-body-md" href="#layanan">Layanan</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:bg-secondary/10 px-sm py-xs rounded-lg transition-colors font-body-md text-body-md" href="#keunggulan">Keunggulan</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:bg-secondary/10 px-sm py-xs rounded-lg transition-colors font-body-md text-body-md" href="#jenis-mobil">Jenis Mobil</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:bg-secondary/10 px-sm py-xs rounded-lg transition-colors font-body-md text-body-md" href="#ulasan">Ulasan</a></li>
+<li><a class="text-on-surface-variant hover:text-secondary hover:bg-secondary/10 px-sm py-xs rounded-lg transition-colors font-body-md text-body-md" href="#lokasi">Lokasi</a></li>
+</ul>
+<!-- Trailing Action -->
+<div class="hidden md:block">
+<a class="inline-flex items-center gap-xs bg-primary-container text-on-primary rounded-full px-sm py-xs font-label-caps text-label-caps hover:bg-primary-container/90 transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+                    WhatsApp Konsultasi
+                </a>
+</div>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle Menu" class="md:hidden text-primary p-xs">
+<span class="material-symbols-outlined text-headline-md">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative bg-primary-container text-on-primary py-xl md:py-[120px] overflow-hidden">
+<!-- Decorative Tech Background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, theme('colors.secondary-fixed') 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+<div class="space-y-sm">
+<div class="inline-flex items-center gap-xs bg-secondary-container/20 text-secondary-fixed border border-secondary-fixed/30 rounded-full px-sm py-base mb-xs">
+<span class="material-symbols-outlined text-[16px] fill">star</span>
+<span class="font-label-caps text-label-caps">Google Review 4.6 ★ (150+ Ulasan)</span>
+</div>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-primary max-w-2xl">
+                        Solusi AC Mobil Sejuk &amp; Transparan Sejak 2000
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-xl">
+                        Bengkel spesialis dengan 24+ tahun pengalaman. Diagnosa jujur menggunakan analisis kelistrikan dan tekanan fisik tanpa Scan ECU.
                     </p>
-                </div>
-
-                <div class="grid-3">
-                    <!-- Card 1 -->
-                    <div class="service-card">
-                        <div class="icon-container">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                            </svg>
-                        </div>
-                        <h3>24+ Tahun Pengalaman</h3>
-                        <p>Melayani ribuan pelanggan sejak tahun 2000 dengan kepercayaan dan dedikasi tinggi dalam setiap perbaikan AC mobil.</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="service-card">
-                        <div class="icon-container">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm-2 21l-5-5 1.41-1.41L14 20.17l7.59-7.59L23 14l-9 9z" fill="#00bcd4"/>
-                            </svg>
-                        </div>
-                        <h3>Jujur & Transparan</h3>
-                        <p>Diagnosis akurat tanpa penggantian komponen yang tidak perlu. Kami selalu memberikan penjelasan detail sebelum perbaikan.</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="service-card">
-                        <div class="icon-container">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                            </svg>
-                        </div>
-                        <h3>Diagnosa Akurat</h3>
-                        <p>Pengecekan fisik, analisis kelistrikan, dan pembacaan sensor tekanan untuk hasil diagnosis yang presisi dan tepat sasaran.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Layanan Section -->
-    <section id="layanan">
-        <div class="container">
-            <div class="text-center mb-8">
-                <div class="section-subtitle">Solusi Lengkap</div>
-                <h2>Layanan Utama Kami</h2>
-                <p class="section-description">
-                    Kami menyediakan solusi lengkap untuk semua kebutuhan AC mobil Anda dengan teknisi berpengalaman dan peralatan modern.
+<div class="flex flex-wrap gap-sm pt-sm">
+<a class="gradient-btn text-on-tertiary-fixed font-label-caps text-label-caps px-lg py-sm rounded-lg hover:shadow-lg transition-all h-[48px] flex items-center justify-center" href="#">
+                            Booking Service
+                        </a>
+<a class="bg-transparent border-2 border-secondary-fixed text-secondary-fixed font-label-caps text-label-caps px-lg py-sm rounded-lg hover:bg-secondary-fixed/10 transition-all h-[48px] flex items-center justify-center" href="#lokasi">
+                            Cek Lokasi
+                        </a>
+</div>
+</div>
+<div class="relative h-[400px] lg:h-[500px] w-full rounded-xl overflow-hidden border border-outline-variant/20 shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A highly detailed photograph of a professional auto mechanic working on a car's air conditioning system in a pristine, well-lit modern garage. The mechanic is wearing clean, dark blue coveralls. The focus is on the intricate metal components of the engine bay, with bright, clinical lighting highlighting the precision of the work. The overall aesthetic is clean, technical, and trustworthy, utilizing deep navy tones and cool ice-blue accents to convey thermal mastery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8I2kUOlMGLmnJqVfEYTQBtV0ZNhJMoneSgF-j8dHiu9tAWB3aBKIkFg3VpeingH7Gp5N2B2AI5Lm5xuAQkr0aXniMTrOzN6M3aFdv-u1TWKvM6nTzKVmtAcaRXx8F_GTdvl_HCPxZe5ZEdfItygJSqyUwSHQki3J-4AAyphftdRzrbqPUAE-Xi0UHSLuDXfVGGzNmHNq8kghYdAwi1VwLe_2iT5y2axWrzHS217tljUA65m33_70F')"></div>
+<!-- Technical Overlay -->
+<div class="absolute bottom-md left-md bg-surface/90 backdrop-blur border border-outline-variant/30 rounded-lg p-sm flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">thermostat</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Optimal Temp</p>
+<p class="font-headline-md text-headline-md text-on-surface">18°C</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Keunggulan Section -->
+<section class="py-xl bg-surface" id="keunggulan">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-sm">Mengapa Memilih Marto AC?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Kami mengutamakan kejujuran dan ketelitian fisik dalam setiap pengerjaan.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Feature 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-surface-variant card-shadow relative overflow-hidden group hover:border-secondary transition-colors">
+<div class="absolute left-0 top-0 w-1 h-full bg-secondary"></div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary mb-sm group-hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-[28px]">workspace_premium</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">24+ Tahun Pengalaman</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Telah menangani ribuan kasus AC mobil sejak tahun 2000 dengan rekam jejak yang terbukti.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-surface-variant card-shadow relative overflow-hidden group hover:border-secondary transition-colors">
+<div class="absolute left-0 top-0 w-1 h-full bg-secondary"></div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary mb-sm group-hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-[28px]">handshake</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Jujur &amp; Transparan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tidak ada biaya tersembunyi. Semua masalah dan solusi dijelaskan secara rinci sebelum pengerjaan.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-surface-variant card-shadow relative overflow-hidden group hover:border-secondary transition-colors">
+<div class="absolute left-0 top-0 w-1 h-full bg-secondary"></div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary mb-sm group-hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined text-[28px]">engineering</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Diagnosa Akurat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Pengecekan mendalam melalui observasi fisik, tes tekanan, dan jalur kelistrikan secara manual.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Layanan Utama Section -->
+<section class="py-xl bg-surface-container-low border-y border-outline-variant/20" id="layanan">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-sm">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Layanan Spesialis</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Solusi komprehensif untuk sistem pendingin udara kendaraan Anda.</p>
+</div>
+<a class="text-secondary font-label-caps text-label-caps flex items-center gap-xs hover:underline" href="#">
+                        Lihat Daftar Harga <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Service 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-sm card-shadow flex items-start gap-sm hover:border-secondary/50 transition-all cursor-pointer">
+<div class="mt-1 text-secondary">
+<span class="material-symbols-outlined fill">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Isi Freon &amp; Cek Tekanan</h4>
+<p class="text-on-surface-variant text-sm mt-1">Pengisian refrigerant sesuai standar pabrikan dan uji tekanan.</p>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-sm card-shadow flex items-start gap-sm hover:border-secondary/50 transition-all cursor-pointer">
+<div class="mt-1 text-secondary">
+<span class="material-symbols-outlined fill">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Pencarian Titik Kebocoran</h4>
+<p class="text-on-surface-variant text-sm mt-1">Inspeksi fisik detail pipa dan seal untuk mendeteksi kebocoran.</p>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-sm card-shadow flex items-start gap-sm hover:border-secondary/50 transition-all cursor-pointer">
+<div class="mt-1 text-secondary">
+<span class="material-symbols-outlined fill">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Cuci Kondensor &amp; Evaporator</h4>
+<p class="text-on-surface-variant text-sm mt-1">Pembersihan menyeluruh untuk sirkulasi udara yang maksimal.</p>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-sm card-shadow flex items-start gap-sm hover:border-secondary/50 transition-all cursor-pointer">
+<div class="mt-1 text-secondary">
+<span class="material-symbols-outlined fill">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Service &amp; Ganti Kompresor</h4>
+<p class="text-on-surface-variant text-sm mt-1">Perbaikan atau penggantian unit kompresor yang aus.</p>
+</div>
+</div>
+<!-- Service 5 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-sm card-shadow flex items-start gap-sm hover:border-secondary/50 transition-all cursor-pointer">
+<div class="mt-1 text-secondary">
+<span class="material-symbols-outlined fill">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Ganti Magnetic Clutch &amp; Ekspansi</h4>
+<p class="text-on-surface-variant text-sm mt-1">Penggantian komponen mekanikal vital AC.</p>
+</div>
+</div>
+<!-- Service 6 -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-sm card-shadow flex items-start gap-sm hover:border-secondary/50 transition-all cursor-pointer">
+<div class="mt-1 text-secondary">
+<span class="material-symbols-outlined fill">check_circle</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg font-semibold text-on-surface">Diagnosa Kelistrikan AC</h4>
+<p class="text-on-surface-variant text-sm mt-1">Pengecekan relay, fuse, dan wiring sirkuit AC secara manual.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Jenis Kendaraan Section -->
+<section class="py-xl bg-surface" id="jenis-mobil">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+<div>
+<span class="inline-block px-xs py-1 bg-surface-container rounded font-label-caps text-label-caps text-on-surface-variant mb-sm border border-outline-variant/30">Cakupan Layanan</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-sm">Kendaraan yang Kami Tangani</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                        Kami melayani kendaraan Bensin, Diesel, Hybrid, dan EV. Keahlian mekanik kami mencakup berbagai sistem pendingin lintas generasi kendaraan.
+                    </p>
+<div class="bg-error-container border border-error/20 rounded-lg p-sm flex gap-sm">
+<span class="material-symbols-outlined text-error mt-0.5">warning</span>
+<p class="font-body-md text-body-md text-on-error-container">
+                            Mohon maaf, untuk saat ini kami <strong>belum melayani</strong> kendaraan EV maupun Hybrid dari pabrikan/brand asal China.
+                        </p>
+</div>
+</div>
+<!-- Bento-style vehicle grid -->
+<div class="grid grid-cols-2 gap-sm">
+<div class="bg-surface-container-low rounded-lg p-sm flex flex-col items-center justify-center text-center h-32 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant mb-xs">local_gas_station</span>
+<span class="font-label-caps text-label-caps text-on-surface">Bensin</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm flex flex-col items-center justify-center text-center h-32 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant mb-xs">oil_barrel</span>
+<span class="font-label-caps text-label-caps text-on-surface">Diesel</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm flex flex-col items-center justify-center text-center h-32 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[32px] text-secondary mb-xs">electric_car</span>
+<span class="font-label-caps text-label-caps text-on-surface">Hybrid (Non-China)</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm flex flex-col items-center justify-center text-center h-32 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[32px] text-secondary mb-xs">ev_station</span>
+<span class="font-label-caps text-label-caps text-on-surface">EV (Non-China)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimoni Section -->
+<section class="py-xl bg-surface-container-low" id="ulasan">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-sm">Kata Pelanggan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Review jujur dari pelanggan setia Marto AC.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 card-shadow">
+<div class="flex text-secondary-container mb-sm">
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-md italic">"Bengkel AC paling jujur di Jakarta. AC mobil saya divonis ganti kompresor di tempat lain, di sini cuma dicek kelistrikannya dan diganti relay. Dingin lagi dan murah!"</p>
+<div class="flex items-center gap-xs">
+<div class="w-10 h-10 rounded-full bg-surface-dim flex items-center justify-center font-bold text-on-surface">B</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Budi Santoso</p>
+<p class="text-xs text-on-surface-variant">Innova Reborn</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 card-shadow">
+<div class="flex text-secondary-container mb-sm">
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-md italic">"Pengerjaannya sangat teliti. Mekaniknya nyari bocor halus sampe ketemu, nggak asal suruh isi freon doang. Pelayanan sangat memuaskan."</p>
+<div class="flex items-center gap-xs">
+<div class="w-10 h-10 rounded-full bg-surface-dim flex items-center justify-center font-bold text-on-surface">A</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Andi Wijaya</p>
+<p class="text-xs text-on-surface-variant">Honda CRV</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant/20 card-shadow">
+<div class="flex text-secondary-container mb-sm">
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+<span class="material-symbols-outlined fill text-[20px]">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-md italic">"Langganan dari jaman bapak saya. Kualitas kerjanya nggak pernah berubah dari tahun 2005. Tetap pertahankan kejujurannya Pak Marto."</p>
+<div class="flex items-center gap-xs">
+<div class="w-10 h-10 rounded-full bg-surface-dim flex items-center justify-center font-bold text-on-surface">R</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Rian Hidayat</p>
+<p class="text-xs text-on-surface-variant">Toyota Avanza</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lokasi Section -->
+<section class="py-xl bg-surface border-t border-outline-variant/20" id="lokasi">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+<div class="space-y-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Kunjungi Bengkel Kami</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Kami siap menangani masalah AC mobil Anda langsung di tempat.</p>
+</div>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary mt-1">location_on</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface mb-1">Alamat</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Jl. Balap Sepeda No.8<br/>Rawamangun, Jakarta Timur</p>
+</div>
+</div>
+<div class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary mt-1">schedule</span>
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface mb-1">Jam Operasional</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Senin - Sabtu: 08.00 - 17.00 WIB<br/>Minggu: Tutup</p>
+</div>
+</div>
+<div class="pt-sm">
+<a class="gradient-btn inline-flex items-center gap-xs text-on-tertiary-fixed font-label-caps text-label-caps px-md py-sm rounded-lg hover:shadow-lg transition-all h-[48px]" href="#">
+<span class="material-symbols-outlined">directions</span>
+                                Petunjuk Arah
+                            </a>
+</div>
+</div>
+<!-- Map Placeholder -->
+<div class="h-[400px] w-full rounded-xl overflow-hidden border border-outline-variant/30 bg-surface-container-low relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A detailed, clean, and highly professional digital map interface centered on Rawamangun, Jakarta Timur. The map utilizes a modern 'light mode' color palette with subtle greys, crisp white roads, and a distinct ice-blue map pin marking a location. The map style is clinical and precise, fitting a professional technical service, avoiding overly saturated colors in favor of deep navy accents." data-location="Jakarta" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBU7c-vck0VQtXygjzUSDsnmB-ieMS9IbR5KbG-02MabVygJI2pDoh-n1pEQ5o4QtdayyNBW9oBGkVrZoKxkwD7dM5MD1eJvmM7jCnTPAGuhEYmE1of8zHWuM2q0NGfEFeF8K4eM6cq7De6scJsaHmDLIoJu1e_N2VW2jso1Ujvp6NvmIYJNts5zJuFkk2ttny0T-suJdL22G3mSGfQPO_Ube1JT4Z8gncWpYWcbKjY61RQDWeaN8Hb')"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-tertiary-container text-on-primary-container dark:text-on-tertiary-container font-body-md text-body-md w-full py-lg border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div>
+<a class="font-headline-md text-headline-md font-extrabold text-white block mb-sm" href="#">
+                    Marto AC Mobil
+                </a>
+<p class="text-on-primary-container/80 max-w-sm mb-md">
+                    Solusi AC Mobil Sejuk &amp; Transparan Sejak 2000.
                 </p>
-            </div>
-
-            <div class="grid-3">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                        </svg>
-                    </div>
-                    <h3>Pengecekan Tekanan & Pengisian Freon</h3>
-                    <p>Pengecekan tekanan gas freon dan pengisian ulang untuk memastikan AC mobil bekerja dengan optimal.</p>
+<div class="text-sm">
+                    Copyright © 2026 Marto AC Mobil. All rights reserved.
                 </div>
-
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                        </svg>
-                    </div>
-                    <h3>Analisis & Pencarian Kebocoran</h3>
-                    <p>Deteksi dan perbaikan kebocoran pada pipa atau selang AC dengan teknologi terkini.</p>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                        </svg>
-                    </div>
-                    <h3>Pembersihan & Perawatan Rutin</h3>
-                    <p>Pembersihan kondensor dan evaporator untuk menjaga performa AC tetap prima.</p>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                        </svg>
-                    </div>
-                    <h3>Perbaikan & Penggantian Kompresor</h3>
-                    <p>Perbaikan, pembongkaran, dan penggantian kompresor AC yang rusak atau tidak berfungsi.</p>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                        </svg>
-                    </div>
-                    <h3>Penggantian Komponen Mekanikal</h3>
-                    <p>Penggantian magnetic clutch, katup ekspansi, dan komponen mekanikal lainnya.</p>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 2C8.27 2 2 8.27 2 16s6.27 14 14 14 14-6.27 14-14S23.73 2 16 2zm0 26c-6.63 0-12-5.37-12-12s5.37-12 12-12 12 5.37 12 12-5.37 12-12 12zm3.5-9h-7v-2h7v2zm0-4h-7v-2h7v2z" fill="#00bcd4"/>
-                        </svg>
-                    </div>
-                    <h3>Diagnosa Sistem Kelistrikan</h3>
-                    <p>Diagnosa sistem kelistrikan AC dan pembacaan sensor tekanan untuk hasil akurat.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Spesifikasi Kendaraan Section -->
-    <section id="kendaraan" style="background: #f8fafc;">
-        <div class="container">
-            <div class="text-center mb-8">
-                <div class="section-subtitle">Cakupan Layanan</div>
-                <h2>Jenis Kendaraan yang Kami Layani</h2>
-                <p class="section-description">
-                    Kami melayani berbagai jenis kendaraan dengan spesifikasi tertentu untuk memberikan hasil terbaik.
-                </p>
-            </div>
-
-            <div class="grid-2">
-                <!-- Kami Layani -->
-                <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; border-left: 4px solid #10b981;">
-                    <h3 style="color: #059669; margin-bottom: 24px;">✓ Kami Layani</h3>
-                    <ul style="list-style: none; space-y: 16px;">
-                        <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: #4b5563;">
-                            <span style="color: #10b981; font-weight: 700; font-size: 18px;">✓</span>
-                            <span>Kendaraan Bensin (ICE)</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: #4b5563;">
-                            <span style="color: #10b981; font-weight: 700; font-size: 18px;">✓</span>
-                            <span>Kendaraan Diesel (ICE)</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: #4b5563;">
-                            <span style="color: #10b981; font-weight: 700; font-size: 18px;">✓</span>
-                            <span>Kendaraan Hybrid (Non-China)</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 12px; color: #4b5563;">
-                            <span style="color: #10b981; font-weight: 700; font-size: 18px;">✓</span>
-                            <span>Kendaraan Listrik/EV (Non-China)</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Tidak Kami Layani -->
-                <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; border-left: 4px solid #ef4444;">
-                    <h3 style="color: #dc2626; margin-bottom: 24px;">✗ Tidak Kami Layani</h3>
-                    <ul style="list-style: none;">
-                        <li style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: #4b5563;">
-                            <span style="color: #ef4444; font-weight: 700; font-size: 18px;">✗</span>
-                            <span>EV dari Pabrikan China</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 12px; color: #4b5563;">
-                            <span style="color: #ef4444; font-weight: 700; font-size: 18px;">✗</span>
-                            <span>Hybrid dari Pabrikan China</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Alert Box -->
-            <div class="alert-box">
-                <h4>⚠️ Perhatian Penting</h4>
-                <p>Mohon maaf, untuk saat ini kami belum melayani kendaraan EV maupun Hybrid dari pabrikan/brand asal China. Kami menyarankan Anda menghubungi bengkel resmi dari pabrikan kendaraan Anda untuk layanan AC yang sesuai.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimoni Section -->
-    <section id="ulasan">
-        <div class="container">
-            <div class="text-center mb-8">
-                <div class="section-subtitle">Kepuasan Pelanggan</div>
-                <h2>Ulasan Pelanggan</h2>
-                <p class="section-description">
-                    Kepuasan pelanggan adalah prioritas utama kami. Berikut adalah beberapa ulasan dari pelanggan setia.
-                </p>
-            </div>
-
-            <div class="grid-3">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">BS</div>
-                        <div>
-                            <h4 style="color: #001f3f; font-weight: 700; margin-bottom: 4px;">Budi Santoso</h4>
-                            <div class="rating-stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">2 bulan lalu • Perbaikan & Service AC Mobil</p>
-                    <p style="font-style: italic; color: #4b5563; line-height: 1.7;">
-                        "Pelayanan sangat memuaskan, teknisinya jujur dan transparan. AC mobil langsung dingin kembali dan pengerjaannya tergolong cepat."
-                    </p>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">AW</div>
-                        <div>
-                            <h4 style="color: #001f3f; font-weight: 700; margin-bottom: 4px;">Andi Wijaya</h4>
-                            <div class="rating-stars">★★★★★</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">5 bulan lalu • Maintenance / Isi Freon</p>
-                    <p style="font-style: italic; color: #4b5563; line-height: 1.7;">
-                        "Bengkel AC langganan di area Rawamangun. Pak Marto dan timnya berpengalaman, analisa kerusakannya tepat jadi ga perlu ganti part yang ga penting."
-                    </p>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">RH</div>
-                        <div>
-                            <h4 style="color: #001f3f; font-weight: 700; margin-bottom: 4px;">Rian Hidayat</h4>
-                            <div class="rating-stars">★★★★</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 13px; color: #94a3b8; margin-bottom: 12px;">1 tahun lalu • Service AC</p>
-                    <p style="font-style: italic; color: #4b5563; line-height: 1.7;">
-                        "Harga bersahabat dibanding tempat lain, pengerjaan lumayan rapi. Hanya saja kalau akhir pekan antreannya lumayan panjang."
-                    </p>
-                </div>
-            </div>
-
-            <!-- Rating Summary -->
-            <div style="background: linear-gradient(135deg, #001f3f 0%, #0d47a1 100%); color: white; padding: 40px; border-radius: 12px; text-align: center; margin-top: 48px;">
-                <p style="font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 8px;">Rating Google Maps</p>
-                <p style="font-size: 48px; font-weight: 700; margin-bottom: 8px;">4.6 ⭐</p>
-                <p style="color: rgba(255,255,255,0.8); font-size: 15px;">Berdasarkan 150+ ulasan dari pelanggan yang puas</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lokasi Section -->
-    <section id="lokasi" style="background: #f8fafc;">
-        <div class="container">
-            <div class="text-center mb-8">
-                <div class="section-subtitle">Kunjungi Kami</div>
-                <h2>Lokasi & Kontak Kami</h2>
-                <p class="section-description">
-                    Kunjungi bengkel kami di Rawamangun, Jakarta Timur untuk mendapatkan layanan terbaik.
-                </p>
-            </div>
-
-            <div class="grid-2">
-                <!-- Contact Info -->
-                <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px;">
-                    <h3 style="margin-bottom: 24px;">Informasi Kontak</h3>
-
-                    <div style="margin-bottom: 24px;">
-                        <div style="display: flex; gap: 16px; margin-bottom: 20px;">
-                            <span style="font-size: 24px;">📍</span>
-                            <div>
-                                <h4 style="color: #001f3f; font-weight: 700; margin-bottom: 8px; font-size: 14px;">Alamat</h4>
-                                <p style="font-size: 14px; line-height: 1.6; color: #4b5563;">
-                                    Jl. Balap Sepeda No.8, RT.8/RW.6, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220
-                                </p>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 16px; margin-bottom: 20px;">
-                            <span style="font-size: 24px;">📞</span>
-                            <div>
-                                <h4 style="color: #001f3f; font-weight: 700; margin-bottom: 8px; font-size: 14px;">Hubungi Kami</h4>
-                                <p style="font-size: 14px; color: #4b5563;">
-                                    <a href="https://wa.me/6281234567890" target="_blank" style="color: #00bcd4; text-decoration: none; font-weight: 600;">WhatsApp: +62 812-3456-7890</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 16px;">
-                            <span style="font-size: 24px;">⭐</span>
-                            <div>
-                                <h4 style="color: #001f3f; font-weight: 700; margin-bottom: 8px; font-size: 14px;">Rating Google Maps</h4>
-                                <p style="font-size: 14px; color: #4b5563;">4.6 / 5.0 dari 150+ ulasan</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="https://www.google.com/maps/place/Marto+Ac+Mobil" target="_blank" class="btn-primary" style="width: 100%; text-align: center; margin-top: 24px;">Buka di Google Maps</a>
-                </div>
-
-                <!-- Map -->
-                <div style="border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb; height: 400px;">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3261945819226!2d106.88911!3d-6.1905241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sMarto%20Ac%20Mobil!5e0!3m2!1sid!2sid!4v1234567890" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Brand -->
-                <div>
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">M</div>
-                        <div>
-                            <h4 style="color: white; font-size: 16px; margin: 0; margin-bottom: 2px;">Marto AC Mobil</h4>
-                            <p style="font-size: 11px; color: #00bcd4; margin: 0; font-weight: 600;">Spesialis AC Sejak 2000</p>
-                        </div>
-                    </div>
-                    <p style="font-size: 14px; line-height: 1.6; color: #cbd5e1;">
-                        Bengkel spesialis yang berfokus pada perawatan, perbaikan, dan diagnosa sistem AC mobil dengan pendekatan jujur dan transparan.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4>Menu Cepat</h4>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 12px;"><a href="#layanan" style="color: #cbd5e1; text-decoration: none; font-size: 14px; transition: color 0.3s;">Layanan</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#keunggulan" style="color: #cbd5e1; text-decoration: none; font-size: 14px;">Keunggulan</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#kendaraan" style="color: #cbd5e1; text-decoration: none; font-size: 14px;">Jenis Mobil</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#ulasan" style="color: #cbd5e1; text-decoration: none; font-size: 14px;">Ulasan</a></li>
-                        <li><a href="#lokasi" style="color: #cbd5e1; text-decoration: none; font-size: 14px;">Lokasi</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div>
-                    <h4>Kontak</h4>
-                    <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 12px;">
-                        📍 Jl. Balap Sepeda No.8, Rawamangun, Jakarta Timur
-                    </p>
-                    <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 16px;">
-                        📞 <a href="https://wa.me/6281234567890" target="_blank" style="color: #00bcd4; text-decoration: none;">WhatsApp: +62 812-3456-7890</a>
-                    </p>
-                    <a href="https://www.google.com/maps/place/Marto+Ac+Mobil" target="_blank" style="color: #00bcd4; text-decoration: none; font-size: 14px; font-weight: 600;">Lihat di Google Maps →</a>
-                </div>
-            </div>
-
-            <div class="footer-divider"></div>
-
-            <div class="footer-copyright">
-                © 2026 Marto AC Mobil. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Sticky Mobile CTA -->
-    <div class="sticky-cta">
-        <a href="https://wa.me/6281234567890?text=Halo%20Marto%20AC%20Mobil%2C%20saya%20ingin%20konsultasi" target="_blank">💬 Hubungi via WhatsApp</a>
-    </div>
-
-    <!-- Mobile Bottom Padding -->
-    <div style="height: 70px; display: block; margin-bottom: 0;"></div>
-
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            document.getElementById('mobileMenu').classList.remove('active');
-        }
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.querySelector('.mobile-menu-btn');
-            if (!menu.contains(event.target) && !btn.contains(event.target)) {
-                menu.classList.remove('active');
-            }
-        });
-    </script>
-</body>
-</html>
+</div>
+<div class="flex flex-col md:items-end justify-center">
+<nav>
+<ul class="flex flex-wrap md:justify-end gap-md">
+<li><a class="text-on-primary-container/80 hover:text-white hover:underline underline-offset-4 transition-opacity duration-200" href="#layanan">Layanan</a></li>
+<li><a class="text-on-primary-container/80 hover:text-white hover:underline underline-offset-4 transition-opacity duration-200" href="#keunggulan">Keunggulan</a></li>
+<li><a class="text-on-primary-container/80 hover:text-white hover:underline underline-offset-4 transition-opacity duration-200" href="#jenis-mobil">Jenis Mobil</a></li>
+<li><a class="text-on-primary-container/80 hover:text-white hover:underline underline-offset-4 transition-opacity duration-200" href="#ulasan">Ulasan</a></li>
+<li><a class="text-on-primary-container/80 hover:text-white hover:underline underline-offset-4 transition-opacity duration-200" href="#lokasi">Lokasi</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>
